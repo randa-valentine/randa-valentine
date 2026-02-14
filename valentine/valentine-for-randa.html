@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Experience</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffeff1;
+            color: #5d004e;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            animation: slideIn 1s forwards;
+        }
+        @keyframes slideIn {
+            from {transform: translateY(-50%); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #d5006d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #a60049;
+        }
+        .scene {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #d5006d;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Valentine's Day, Randa!</h1>
+    <p>Welcome to your interactive Valentine's Day adventure. Click the button below to begin!</p>
+    <button onclick="startExperience()">Start Experience</button>
+
+    <div id="scene1" class="scene">
+        <h2>Scene 1: The Flowers</h2>
+        <p>As you walk through the forest, a gentle breeze carries the scent of roses. You find a beautiful bouquet of flowers. Choose what to do:</p>
+        <button onclick="nextScene('scene2')">Pick the Flowers</button>
+        <button onclick="nextScene('scene3')">Leave Them Alone</button>
+    </div>
+
+    <div id="scene2" class="scene">
+        <h2>Scene 2: The Heart</h2>
+        <p>You picked the flowers and suddenly a magical heart appears! It invites you to play a game. Try to catch the hearts that fall!</p>
+        <button onclick="startGame()">Catch Hearts!</button>
+    </div>
+
+    <div id="scene3" class="scene">
+        <h2>Scene 3: The Wishes</h2>
+        <p>You ignored the flowers, but a wish granted a new surprise, revealing a path to a secret garden!</p>
+        <button onclick="nextScene('scene4')">Enter the Secret Garden</button>
+    </div>
+
+    <div id="scene4" class="scene">
+        <h2>Final Scene: The Revelation</h2>
+        <p>Whichever path you take, it leads to the same truth: love is found in every choice!</p>
+    </div>
+
+    <script>
+        function startExperience() {
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('scene1').style.display = 'block';
+        }
+        function nextScene(sceneId) {
+            document.querySelectorAll('.scene').forEach(scene => scene.style.display = 'none');
+            document.getElementById(sceneId).style.display = 'block';
+        }
+        function startGame() {
+            alert('Game not implemented yet, but imagine catching falling hearts!');
+        }
+    </script>
+</body>
+</html>
